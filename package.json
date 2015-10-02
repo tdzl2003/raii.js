@@ -1,5 +1,26 @@
 {
   "name": "raii",
   "version": "0.0.1",
-  "main": "lib/index.js"
+  "main": "lib/index.js",
+  "description": "RAII implemented based on promise",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node test/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tdzl2003/raii.js.git"
+  },
+  "keywords": [
+    "raii",
+    "promise"
+  ],
+  "author": "tdzl2003",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tdzl2003/raii.js/issues"
+  },
+  "homepage": "https://github.com/tdzl2003/raii.js#readme"
 }
