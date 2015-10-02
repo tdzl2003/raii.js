@@ -3,9 +3,9 @@
  */
 "use strict";
 
-var raii = require('../lib/index');
+var Raii = require('../lib/index');
 
-let stack = new raii().push({
+let stack = new Raii().push({
     init(){
         return new Promise(resolve=>{
             setTimeout(resolve, 1000);
@@ -23,6 +23,19 @@ let stack = new raii().push({
             console.log("Shutting down server.");
             this._server.close();
             this._server = null;
+        }
+    }
+}).push({
+    // A breakable resource that will never done init process.
+    isBreakable: true,
+    init(){
+        return new Promise((resolve, reject)=>{
+            this._reject = reject
+        })
+    },
+    destroy(error){
+        if (this._reject){
+            this._reject(error || new Error());
         }
     }
 })
